@@ -11,7 +11,7 @@
 
 #define SIZE 3
 
-//Função imprimir novo estado conforme movimento do jogador.
+//FunÃ§Ã£o imprimir novo estado conforme movimento do jogador.
 void printMatriz(int matriz[SIZE][SIZE]) {
     system(CLEAR); // Limpa a tela antes de imprimir.
     printf("\n  8-PUZZLE \n");
@@ -25,19 +25,19 @@ void printMatriz(int matriz[SIZE][SIZE]) {
                 printf("\x1B[48;2;0;0;0m\x1B[38;2;255;255;255m"); // Fundo preto e texto branco
             }
             int num = matriz[i][j];
-            int espacos = 3 - 1; // Número de espaços para centralizar (3 é o tamanho do número máximo 9)
-            printf("%*d%*s", espacos, num, espacos, ""); // Imprime número centralizado com espaços
+            int espacos = 3 - 1; // NÃºmero de espaÃ§os para centralizar (3 Ã© o tamanho do nÃºmero mÃ¡ximo 9)
+            printf("%*d%*s", espacos, num, espacos, ""); // Imprime nÃºmero centralizado com espaÃ§os
         }
-        printf("\x1B[0m\n"); // Reset de formatação de cor
+        printf("\x1B[0m\n"); // Reset de formataÃ§Ã£o de cor
     }
 }
 
-//Função para ler movimento do usuário e modifica o estado do puzzle.
+//FunÃ§Ã£o para ler movimento do usuÃ¡rio e modifica o estado do puzzle.
 void ler(int matriz[SIZE][SIZE], int input) {
     int row_9, col_9, row_input, col_input;
-    int distanciaMaxima = 1; // Máxima distância permitida.
+    int distanciaMaxima = 1; // MÃ¡xima distÃ¢ncia permitida.
 
-    // Encontre as posições do número 9 e do número de entrada.
+    // Encontre as posiÃ§Ãµes do nÃºmero 9 e do nÃºmero de entrada.
     for (int i = 0; i < SIZE; i++) {
         for (int j = 0; j < SIZE; j++) {
             if (matriz[i][j] == 9) {
@@ -51,7 +51,7 @@ void ler(int matriz[SIZE][SIZE], int input) {
         }
     }
 
-    // Verifique se a distância entre os números é menor ou igual à distância máxima permitida.
+    // Verifique se a distÃ¢ncia entre os nÃºmeros Ã© menor ou igual Ã  distÃ¢ncia mÃ¡xima permitida.
     int distancia = abs(row_input - row_9) + abs(col_input - col_9);
     if (distancia <= distanciaMaxima) {
         matriz[row_9][col_9] = input;
@@ -59,7 +59,7 @@ void ler(int matriz[SIZE][SIZE], int input) {
     }
 }
 
-//Função para indicar se o puzzle foi resolvido ou não.
+//FunÃ§Ã£o para indicar se o puzzle foi resolvido ou nÃ£o.
 int PuzzleCompleto(int matriz[SIZE][SIZE]) {
     int mat[SIZE][SIZE] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}, i, j, cont = 0;
 
@@ -75,13 +75,13 @@ int PuzzleCompleto(int matriz[SIZE][SIZE]) {
     char l=3,
     b= 1;
 
-    // frequência e duração
+    // frequÃªncia e duraÃ§Ã£o
     Beep(2000,200);
     Beep(2500,250);
     Beep(3000,1000);
 
         printf("\n");
-        printf("\n  !! JOGO CONCLUÍDO !! %c %c ", l, b);
+        printf("\n  !! JOGO CONCLUÃDO !! %c %c ", l, b);
         printf("\n");
         return 1;
     }
@@ -95,7 +95,7 @@ int main() {
     srand(time(0));
     int i, j, num;
 
-    // Preenchendo a matriz 3x3 com valores de 1 a 9 sem repetição.
+    // Preenchendo a matriz 3x3 com valores de 1 a 9 sem repetiÃ§Ã£o.
      for (i = 0; i < SIZE; i++) {
         for (j = 0; j < SIZE; j++) {
             do {
@@ -114,7 +114,7 @@ int main() {
     do {
         int input;
         printf("\n");
-        printf("Mova a peça: ");
+        printf("Mova a peÃ§a: ");
         scanf("%d", &input);
 
         ler(matriz, input);
